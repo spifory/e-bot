@@ -1,23 +1,24 @@
-import { Client as _Client } from "yuuko";
-import 'dotenv/config'
+import { Client as _Client } from 'yuuko';
+import 'dotenv/config';
 
-
-const INTENTS = (1 << 0) | (1 << 1) | (1 << 9) | (1 << 15)
+const INTENTS = (1 << 0) | (1 << 1) | (1 << 9) | (1 << 15);
 
 export class Client extends _Client {
     constructor() {
         super({
             token: process.env.TOKEN,
             intents: INTENTS,
-            prefix: "",
-        })
+            prefix: '',
+        });
 
-        this.on("ready", () => {
+        this.on('ready', () => {
             this.editStatus({
-                name: "o",
-                type: 5.
-            })
-            console.info(`[I] connected as ${this.user.username}#${this.user.discriminator} at ${new Date().toLocaleString()}`)
-        })
+                name: 'o',
+                type: 5,
+            });
+            console.info(
+                `[I] connected as ${this.user.username}#${this.user.discriminator} at ${new Date().toLocaleString()}`,
+            );
+        });
     }
 }
