@@ -1,0 +1,19 @@
+{
+  "name": "o-bot",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A Discord bot to only make sure 'o' is uttered.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/toolifelesstocode/o-bot.git",
+  "author": "Sham <thesham@protonmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "eris": "^0.17.1",
+    "yuuko": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  }
+}
