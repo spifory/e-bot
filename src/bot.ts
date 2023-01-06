@@ -1,11 +1,14 @@
 import { Client as _Client } from "yuuko";
 import 'dotenv/config'
 
+
+const INTENTS = (1 << 0) | (1 << 1) | (1 << 9) | (1 << 15)
+
 export class Client extends _Client {
     constructor() {
         super({
             token: process.env.TOKEN,
-            intents: 33282,
+            intents: INTENTS,
             prefix: "",
         })
 
