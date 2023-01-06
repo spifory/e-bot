@@ -1,7 +1,7 @@
-import { Role, TextChannel } from "eris";
-import { EventListener } from "yuuko";
+import { Role, TextChannel } from 'eris';
+import { EventListener } from 'yuuko';
 
-export default new EventListener("guildMemberAdd", async (guild, member, ctx) => {
+export default new EventListener('guildMemberAdd', async (guild, member, _ctx) => {
     if (guild.id !== process.env.GUILD_ID) return;
 
     let role: Role | undefined;
@@ -10,7 +10,7 @@ export default new EventListener("guildMemberAdd", async (guild, member, ctx) =>
     } catch (error) {
         const logChannel = guild.channels.get(process.env.LOG_CHANNEL_ID);
         if (logChannel instanceof TextChannel) {
-            logChannel.createMessage(`Error getting role: `, error);
+            logChannel.createMessage('Error getting role: ', error);
         }
     }
 
@@ -22,10 +22,10 @@ export default new EventListener("guildMemberAdd", async (guild, member, ctx) =>
             const logChannel = guild.channels.get(process.env.LOG_CHANNEL_ID);
             if (logChannel instanceof TextChannel) {
                 await logChannel.createMessage(
-                    `Error adding role to ${member.user.username}#${member.user.discriminator}: `, error
+                    `Error adding role to ${member.user.username}#${member.user.discriminator}: `,
+                    error,
                 );
             }
         }
     }
-    
-})
+});

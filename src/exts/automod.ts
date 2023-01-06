@@ -1,7 +1,8 @@
-import { TextChannel } from "eris";
-import { EventListener } from "yuuko";
+import { TextChannel } from 'eris';
+import { EventListener } from 'yuuko';
 
-export default new EventListener('guildMemberUpdate', (guild, member, oldMember, ctx) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default new EventListener('guildMemberUpdate', (guild, member, _oldMember, _ctx) => {
     if (guild.id !== process.env.GUILD_ID) return;
 
     if (!member.roles.includes(process.env.DEFAULT_H_ROLE_ID)) {
@@ -10,18 +11,23 @@ export default new EventListener('guildMemberUpdate', (guild, member, oldMember,
         } catch (error) {
             const logChannel = guild.channels.get(process.env.LOG_CHANNEL_ID);
             if (logChannel instanceof TextChannel) {
-                logChannel.createMessage(`Error adding role to ${member.user.username}#${member.user.discriminator}: `, error);
+                logChannel.createMessage(
+                    `Error adding role to ${member.user.username}#${member.user.discriminator}: `,
+                    error,
+                );
             }
         }
-    } else if (member.nick !== "o") {
+    } else if (member.nick !== 'o') {
         try {
-            member.edit({ nick: "o" });
+            member.edit({ nick: 'o' });
         } catch (error) {
             const logChannel = guild.channels.get(process.env.LOG_CHANNEL_ID);
             if (logChannel instanceof TextChannel) {
-                logChannel.createMessage(`Error changing nickname of ${member.user.username}#${member.user.discriminator}: `, error);
+                logChannel.createMessage(
+                    `Error changing nickname of ${member.user.username}#${member.user.discriminator}: `,
+                    error,
+                );
             }
         }
     }
-    
-})
+});
