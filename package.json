@@ -1,6 +1,6 @@
 {
   "name": "o-bot",
-  "type": "module",
+  "type": "commonjs",
   "version": "1.0.0",
   "description": "A Discord bot to only make sure 'o' is uttered.",
   "main": "dist/index.js",
