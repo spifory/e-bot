@@ -6,7 +6,7 @@ export default new EventListener('guildMemberAdd', async (guild, member, _ctx) =
 
     let role: Role | undefined;
     try {
-        role = guild.roles.get(process.env.DEFAULT_H_ROLE_ID);
+        role = guild.roles.get(process.env.DEFAULT_O_ROLE_ID);
     } catch (error) {
         const logChannel = guild.channels.get(process.env.LOG_CHANNEL_ID);
         if (logChannel instanceof TextChannel) {

@@ -5,9 +5,9 @@ import { EventListener } from 'yuuko';
 export default new EventListener('guildMemberUpdate', (guild, member, _oldMember, _ctx) => {
     if (guild.id !== process.env.GUILD_ID) return;
 
-    if (!member.roles.includes(process.env.DEFAULT_H_ROLE_ID)) {
+    if (!member.roles.includes(process.env.DEFAULT_O_ROLE_ID)) {
         try {
-            member.addRole(process.env.DEFAULT_H_ROLE_ID);
+            member.addRole(process.env.DEFAULT_O_ROLE_ID);
         } catch (error) {
             const logChannel = guild.channels.get(process.env.LOG_CHANNEL_ID);
             if (logChannel instanceof TextChannel) {
