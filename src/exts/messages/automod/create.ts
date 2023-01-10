@@ -15,6 +15,6 @@ export default new EventListener('messageCreate', async (msg, _ctx) => {
         (msg.stickerItems !== undefined) || // does not return a list for whatever reason
         (msg.components.length !== 0)
     ) {
-        return await msg.delete('not o');
+        return await msg.delete('not e');
     }
 });
