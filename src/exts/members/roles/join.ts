@@ -17,5 +17,4 @@ export default new EventListener('guildMemberAdd', async (guild, member, _ctx) =
             );
         }
     }
-    
 });
